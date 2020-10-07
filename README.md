@@ -15,7 +15,7 @@ To install a specific version nodejs:
 anvm i
 ```
 
-![](https://raw.githubusercontent.com/zhuyingda/anvm/master/doc/clidemo.gif?raw=true)
+![](https://raw.githubusercontent.com/zhuyingda/anvm/master/doc/demo-cli-install.gif?raw=true)
 
 Also, you can run this to add anvm installed node to your command line:
 
