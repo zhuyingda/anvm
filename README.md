@@ -1,14 +1,6 @@
 # anvm
 another nvm, faster and no side effect.
 
-## support
-
-|  Operation System   | Support  |
-|  ----  | ----  |
-| MacOS  | ✅ |
-| Linux  | ❌ |
-| Windows  | ❌ |
-
 ## install
 
 ```
@@ -23,6 +15,7 @@ To install a specific version nodejs:
 anvm i
 ```
 
+![](https://raw.githubusercontent.com/zhuyingda/anvm/master/doc/clidemo.mp4?raw=true)
 
 Also, you can run this to add anvm installed node to your command line:
 
@@ -37,6 +30,14 @@ echo "\nexport PATH=~/.anvm/bin:\$PATH" >> ~/.zshrc
 ```
 echo "\nexport PATH=~/.anvm/bin:\$PATH" >> ~/.bashrc
 ```
+
+## support
+
+|  Operation System   | Support  |
+|  ----  | ----  |
+| MacOS  | ✅ |
+| Linux  | ❌ |
+| Windows  | ❌ |
 
 ## License
 
