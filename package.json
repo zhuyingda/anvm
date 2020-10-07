@@ -1,0 +1,35 @@
+{
+  "name": "anvm",
+  "version": "0.1.0",
+  "description": "another nvm, faster and no side effect.",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha test/test.js"
+  },
+  "bin": {
+    "anvm": "./bin/anvm"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhuyingda/anvm.git"
+  },
+  "keywords": [
+    "nodejs version manager",
+    "nvm"
+  ],
+  "author": "zhuyingda",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/zhuyingda/anvm/issues"
+  },
+  "homepage": "https://github.com/zhuyingda/anvm#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "chalk": "^4.1.0",
+    "inquirer": "^7.3.3"
+  },
+  "devDependencies": {
+    "mocha": "^8.1.1",
+    "proxyquire": "^2.1.3"
+  }
+}
