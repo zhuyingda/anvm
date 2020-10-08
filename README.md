@@ -1,5 +1,5 @@
 # anvm
-another nvm, faster and no side effect.
+another nvm, faster and no side effect when your shell launch.
 
 ## install
 
@@ -9,7 +9,7 @@ npm i -g anvm
 
 ## usage
 
-To install a specific version nodejs:
+To install a specific version nodejs, you can type this:
 
 ```
 anvm i
@@ -17,7 +17,7 @@ anvm i
 
 ![](https://raw.githubusercontent.com/zhuyingda/anvm/master/doc/demo-cli-install.gif?raw=true)
 
-Also, you can run this to add anvm installed node to your command line:
+Also, to add anvm installed node to your command line, you can do:
 
 ### for zsh
 
