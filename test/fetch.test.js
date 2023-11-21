@@ -10,7 +10,7 @@ describe('test fetch module', () => {
           default: {
             get: (url) => {
               return {
-                data: `<table class="download-table full-width">
+                data: `<table id="tbVersions" class="download-table full-width">
                         <thead>
                           <tr>
                             <td>Version</td>
@@ -24,7 +24,7 @@ describe('test fetch module', () => {
                         </thead>
                         <tbody>
                           <tr>
-                            <td data-label="Version">Node.js 14.8.0</td>
+                            <td data-label="Version">Node.js <!-- -->14.8.0</td>
                             <td data-label="LTS"></td>
                             <td data-label="Date"><time>2020-08-11</time></td>
                             <td data-label="V8">8.4.371.19</td>
@@ -32,7 +32,7 @@ describe('test fetch module', () => {
                             <td data-label="NODE_MODULE_VERSION">83</td>
                             <td class="download-table-last">
                               <a href="https://nodejs.org/download/release/v14.8.0/">
-                                Downloads
+                                Releases
                               </a>
                               <a href="https://github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V14.md#14.8.0">
                                 Changelog
@@ -50,7 +50,7 @@ describe('test fetch module', () => {
       });
       const verList = await list();
       assert.equal(verList.length, 1);
-      assert.equal(verList[0].nodeVer, 'Node.js 14.8.0');
+      assert.equal(verList[0].nodeVer, '14.8.0');
       assert.equal(verList[0].pubDate, '2020-08-11');
       assert.equal(verList[0].v8Ver, '8.4.371.19');
       assert.equal(verList[0].downloadUrl, 'https://nodejs.org/download/release/v14.8.0/');
@@ -84,7 +84,7 @@ describe('test fetch module', () => {
           default: {
             get: (url) => {
               return {
-                data: `<html><head></head><body><table class="download-table full-width">x</table></body></html>`
+                data: `<html><head></head><body><table id="tbVersions" class="download-table full-width">x</table></body></html>`
               };
             }
           }
@@ -104,7 +104,7 @@ describe('test fetch module', () => {
           default: {
             get: (url) => {
               return {
-                data: `<html><head></head><body><table class="download-table full-width"><tbody>x</tbody></table></body></html>`
+                data: `<html><head></head><body><table id="tbVersions" class="download-table full-width"><tbody>x</tbody></table></body></html>`
               };
             }
           }
@@ -148,7 +148,11 @@ describe('test fetch module', () => {
               }
             }
           }
-        }
+        },
+        os: {
+          platform: () => 'darwin',
+          arch: () => 'x64',
+        },
       };
       stub.axios.default.get = (url) => {
         const [ _, reqVer ] = url.match(/\/\/nodejs\.org\/download\/release\/([\w|\W]+)\/$/);
@@ -194,7 +198,11 @@ describe('test fetch module', () => {
               }
             }
           }
-        }
+        },
+        os: {
+          platform: () => 'darwin',
+          arch: () => 'x64',
+        },
       };
       stub.axios.default.get = (url) => {
         return {
@@ -241,7 +249,11 @@ describe('test fetch module', () => {
               }
             }
           }
-        }
+        },
+        os: {
+          platform: () => 'darwin',
+          arch: () => 'x64',
+        },
       };
       stub.axios.default.get = (url) => {
         const [ _, reqVer ] = url.match(/\/\/nodejs\.org\/download\/release\/([\w|\W]+)\/$/);
@@ -290,7 +302,11 @@ describe('test fetch module', () => {
               }
             }
           }
-        }
+        },
+        os: {
+          platform: () => 'darwin',
+          arch: () => 'x64',
+        },
       };
       stub.axios.default.get = (url) => {
         const [ _, reqVer ] = url.match(/\/\/nodejs\.org\/download\/release\/([\w|\W]+)\/$/);
