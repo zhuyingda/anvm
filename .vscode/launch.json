@@ -11,6 +11,17 @@
       "console": "integratedTerminal",
       "program": "${workspaceFolder}/bin/anvm",
       "cwd": "${workspaceFolder}/",
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "test",
+      "console": "integratedTerminal",
+      "program": "${workspaceFolder}/node_modules/mocha/bin/mocha",
+      "cwd": "${workspaceFolder}/",
+      "args": [
+        "test/test.js"
+      ]
     }
   ]
 }
