@@ -120,7 +120,7 @@ describe('test fetch module', () => {
   });
 
   describe('download function', () => {
-    it('normal case', async () => {
+    it.only('normal case', async () => {
       const stub = {
         axios: {
           default: () => {
@@ -154,12 +154,27 @@ describe('test fetch module', () => {
           arch: () => 'x64',
         },
       };
+      let axiosRequestUrl;
       stub.axios.default.get = (url) => {
-        const [ _, reqVer ] = url.match(/\/\/nodejs\.org\/download\/release\/([\w|\W]+)\/$/);
-        const mockHtml = fs.readFileSync('./test/fetch-download.html', 'utf8');
-        return {
-          data: mockHtml.replace(/\$\{reqVer\}/g, reqVer)
-        };
+
+        if (/\/\/nodejs\.org\/download\/release\/([\w|\W]+)\/$/.test(url)) {
+          const [ _, reqVer ] = url.match(/\/\/nodejs\.org\/download\/release\/([\w|\W]+)\/$/);
+          const mockHtml = fs.readFileSync('./test/fetch-download.html', 'utf8');
+          return {
+            data: mockHtml.replace(/\$\{reqVer\}/g, reqVer)
+          };
+        }
+        else {
+          axiosRequestUrl = url;
+          return {
+            data: {
+              pipe: () => {
+                // todo
+              }
+            }
+          };
+        }
+
       };
       const { download } = proxyquire('../lib/fetch', stub);
 
@@ -167,6 +182,7 @@ describe('test fetch module', () => {
       const expectSavePathDir = '/path/to/save/';
       const expectSavePath = expectSavePathDir + `node-${version}-darwin-x64.tar.gz`;
       const actualSavePath = await download(`https://nodejs.org/download/release/${version}/`, expectSavePathDir);
+      assert.equal(axiosRequestUrl, 'https://nodejs.org/node-v14.0.0-darwin-x64.tar.gz');
       assert.equal(actualSavePath, expectSavePath);
     });
 
