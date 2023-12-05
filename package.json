@@ -1,6 +1,6 @@
 {
   "name": "anvm",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "another nvm, faster and no side effect.",
   "main": "index.js",
   "scripts": {
